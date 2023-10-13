@@ -1,5 +1,5 @@
 cc=g++
-ccflags=-g -Wall -std=c++14
+ccflags=-Wall -std=c++14
 ldflags=-lcurlpp -lcurl -lpthread
 prefix=/usr/local
 
