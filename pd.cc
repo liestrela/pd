@@ -75,7 +75,7 @@ namespace {
 		{
 			print_lock.lock();
 			std::cout << Line(current_line) << Color(63, filename + ": ") << HumanBytes(done)
-			<< " of " << HumanBytes(total) << " bytes downloaded (" << (total?int(done*100.0/total):0)
+			<< " of " << HumanBytes(total) << " downloaded (" << (total?int(done*100.0/total):0)
 			<< "%)" << std::flush;
 			print_lock.unlock();
 
@@ -129,10 +129,10 @@ main(int argc, char **argv)
 		}
 	} else param = argv[1];
 
-	if (param == "-v") {
+	if (param == "-h") {
 		std::cout << "pd - parallel download\n"
 		<< "Downloads multiple files simultaneosly using multithreading.\n\n"
-		<< "Usage: " << argv[0] << " [-v] <file with URLs>" << std::endl;
+		<< "Usage: " << argv[0] << " [-h] <file with URLs>" << std::endl;
 		return 0;
 	}
 
@@ -142,7 +142,7 @@ main(int argc, char **argv)
 	for (auto &thread : threads) thread.join();
 
 	std::cout << Line(current_line) << Color(27, HumanBytes(total_bytes))
-	<< " bytes downloaded" << std::endl;
+	<< " downloaded" << std::endl;
 
 	return 0;
 }
