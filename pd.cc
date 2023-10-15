@@ -136,7 +136,12 @@ main(int argc, char **argv)
 		return 0;
 	}
 
-	if (!param.empty()) ReadUrls(param, urls);
+	if (!param.empty()) {
+		if (ReadUrls(param, urls)<0) {
+			std::cerr << "Couldn't open file \"" << param << "\"" << std::endl;
+			return -1;
+		}
+	}
 
 	for (auto url : urls) threads.emplace_back(Download, url, current_line++);
 	for (auto &thread : threads) thread.join();

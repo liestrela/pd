@@ -9,7 +9,7 @@ pd: pd.cc
 	$(cc) -o $@ $< $(ccflags) $(ldflags)
 
 install: pd
-	cp ./pd $(prefix)/bin
+	install ./pd $(prefix)/bin
 
 clean:
 	rm -f ./pd
