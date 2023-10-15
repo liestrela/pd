@@ -43,7 +43,7 @@ namespace {
 	{
 		std::string prefixes = " kMGTPE";
 		std::stringstream stream;
-		int i;
+		unsigned i;
 		for (i=0; bytes>1000 && i<prefixes.size();i++) bytes /= 1000;
 		stream << std::fixed << std::setprecision(2) << bytes << " " << prefixes[i] << "B";
 		return stream.str();
